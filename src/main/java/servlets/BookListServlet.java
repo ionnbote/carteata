@@ -25,5 +25,8 @@ public class BookListServlet extends HttpServlet {
         pw.println("</body></html>");
 
         pw.close();//closing the stream
+        savetoDB();    }
+
+    private void savetoDB() {
     }
 }

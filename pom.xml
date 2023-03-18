@@ -38,7 +38,7 @@
                 <version>3.3.2</version>
                 <configuration>
                     <warName>CarteaTa</warName>
-                    <outputDirectory>/Applications/apache-tomcat-9.0.73/webapps/</outputDirectory>
+                    <outputDirectory>D:\Install\tomcat9\webapps\</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -50,8 +50,8 @@
     </build>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
 </project>
