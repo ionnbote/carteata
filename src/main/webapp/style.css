@@ -112,20 +112,14 @@ a {
   margin-top: -50px;
 }
 .myDiv{
-  border: 1px outset gray;
-  margin:0;
   position:relative;
   top:-70px;
   right:-400px;
-  background-color: whitesmoke; 
-  text-align: center;
+  text-align: right;
   height: 50px;
-  width: 500px; 
-  font-size: 25px;  
+  width: 500px;
+  font-size: 25px;
 }
-.myDiv a:link{
-  color: #28a745;
- } 
 
  .contul_meu{
   color: #28a745;
@@ -151,6 +145,7 @@ a {
 }
 
 nav{
+  color: red;
   font: 30px "LithosPro-Black", sans-serif;
   font-size: large;
   podding-top:10px;
@@ -167,9 +162,8 @@ a{
 .loginForm{
   background-color: white;
   position: static;
-  padding: 50px; */
+  padding: 50px;
   padding-left: 10px;
-  pad
   padding-top: 20px;
   margin-top: 50px;
   margin-left: 400px;
@@ -246,24 +240,24 @@ p a {
   font-weight: 600;
   text-decoration: underline;
 }
+.top-menu-wrapper a {
+    text-decoration: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #363636;
+    text-transform: uppercase;
+    transition: background-color .3s;
+}
+
+.pager{
+    position: static;
+    right: 20px;
+    translate: 40px 20rem;
+}
+
 
                                         /* Style Carti */
-/* 
-.container{
-  margin: 10px; */
-  /* position:absolute; */
-  /* top: 50px;
-  right: 50px; 
-  left: 50px; */
-  /* text-align: center;
-  height: 50px;
-  width: 500px;  */
-  /* font-size: 25px;  */
-  /* font: 30px "LithosPro-Black", sans-serif;
-  display: block;
-  text-align: center;
-  background-color: lightblue;
-} */
 .container button{
   color: beige;
 }
@@ -273,14 +267,6 @@ p a {
 
                                         /* Style CreazaCont  */
 
-    /* .cascading-right {
-      margin-top: 20px;
-      margin-left: 50px;
-      margin-right: 50px;
-      border-top: 50px;
-      border-right: 100px;
-      border-left: 100px;
-    } */
 
     @media (max-width: 99.98px) {
       .cascading-right {
