@@ -10,6 +10,7 @@ CREATE TABLE carteata.User (
 commit;
 CREATE TABLE carteata.Book (
     BookId int NOT NULL UNIQUE,
+    Image varchar(1000) NOT NULL UNIQUE,
     Name varchar(100) NOT NULL,
     AuthorId int NOT NULL,
     EditionName varchar(50),
@@ -21,7 +22,7 @@ CREATE TABLE carteata.Book (
 commit;
 
 CREATE TABLE carteata.Author (
-    UserId int NOT NULL UNIQUE,
+    AuthorId int NOT NULL UNIQUE,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255) NOT NULL,
     Age int,
