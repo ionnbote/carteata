@@ -16,6 +16,26 @@ INSERT INTO carteata.user VALUES (9,'Bodrug','Daniela','danielabodrug@gmail.com'
 commit;
 INSERT INTO carteata.user VALUES (10,'Moscaliuc','Vasile','vasilemoscaliuc@gmail.com','stefania26');
 commit;
+INSERT INTO carteata.user VALUES (11,'Balan','Corina','balancorina@gmail.com','corina26');
+commit;
+INSERT INTO carteata.user VALUES (12,'Pintea','Catalina','catalinapintea@gmail.com','pintea25');
+commit;
+INSERT INTO carteata.user VALUES (13,'Zgureanu','Ionela','ionelazgureanu@gmail.com','zgureanu.22');
+commit;
+INSERT INTO carteata.user VALUES (14,'Cihan','Ecaterina','ecaterinacihan@gmail.com','ecaterina.79');
+commit;
+INSERT INTO carteata.user VALUES (15,'Cihan','Ana','anacihan@gmail.com','cihan.ana14');
+commit;
+INSERT INTO carteata.user VALUES (16,'Fotescu','Ana','fotescuana@gmail.com','ana.fotescu');
+commit;
+INSERT INTO carteata.user VALUES (17,'Bodrug','Elena','elenabodrug@gmail.com','elena.96');
+commit;
+INSERT INTO carteata.user VALUES (18,'Nica','Gheorghe','gheorghenica@gmail.com','george.nica.96');
+commit;
+INSERT INTO carteata.user VALUES (19,'Bors','Vasile','borsvasile@gmail.com','bors123');
+commit;
+INSERT INTO carteata.user VALUES (20,'Bulmaga','Mihail','bulmagamihail@gmail.com','maikal34');
+commit;
 
 INSERT INTO carteata.book VALUES (1,"Retete pentru pofticiosi.jpg","Retete pentru pofticiosi",2,"For You",2002,226,"Belistrica",562172);
 commit;
@@ -39,7 +59,7 @@ INSERT INTO carteata.book VALUES (10,"Totul incepe cu noi.jpg","Totul incepe cu 
 commit;
 INSERT INTO carteata.book VALUES (11,"Cel mai bogat om din babilon.jpg","Cel mai bogat om din babilon",11,"Amaltea",2004,144,"Belistrica",195525);
 commit;
-INSERT INTO carteata.book VALUES (12,"Creerul copilului tau.jpg","Creerul copilului tau",12,"For You",2009,162,"Belistrica",562172);
+INSERT INTO carteata.book VALUES (12,"Creerul copilului tau.jpg","Creerul copilului tau",12,"For You",2009,162,"Belistrica",562173);
 commit;
 INSERT INTO carteata.book VALUES (13,"fluturi.jpg","Fluturi",13,"For You",2013,681,"Belistrica",315280);
 commit;
