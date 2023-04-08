@@ -37,7 +37,18 @@ INSERT INTO carteata.book VALUES (9,"Portretul lui Dorian Gray.jpg","Portretul l
 commit;
 INSERT INTO carteata.book VALUES (10,"Totul incepe cu noi.jpg","Totul incepe cu noi",10,"Epica",2023,368,"Belistrica",708390);
 commit;
-
+INSERT INTO carteata.book VALUES (11,"Cel mai bogat om din babilon.jpg","Cel mai bogat om din babilon",11,"Amaltea",2004,144,"Belistrica",195525);
+commit;
+INSERT INTO carteata.book VALUES (12,"Creerul copilului tau.jpg","Creerul copilului tau",12,"For You",2009,162,"Belistrica",562172);
+commit;
+INSERT INTO carteata.book VALUES (13,"fluturi.jpg","Fluturi",13,"For You",2013,681,"Belistrica",315280);
+commit;
+INSERT INTO carteata.book VALUES (14,"ipoteza fericirii.jpg","Ipoteza fericirii",14,"Humanitas",2020,421,"Belistrica",689368);
+commit;
+INSERT INTO carteata.book VALUES (15,"Lumea creata de inteligenta artificiala.jpg","Superputerile inteligentei artificiale",8,"Corint",2021,352,"Belistrica",682414);
+commit;
+INSERT INTO carteata.book VALUES (16,"Rezerva.jpg","Rezerva",15,"Nemira",2023,456,"Belistrica",705702);
+commit;
 
 INSERT INTO carteata.author VALUES (1,'Kay','Jim',48,'Northamptonshire');
 commit;
@@ -57,7 +68,15 @@ INSERT INTO carteata.author VALUES (8,'Kai-Fu','Lee',62,'China');
 commit;
 INSERT INTO carteata.author VALUES (9,'Wilde','Oscar',87,'Dublin');
 commit;
-INSERT INTO carteata.author VALUES (10,'Hoover','Colleen',43,'SUA');
+INSERT INTO carteata.author VALUES (11,'Clason','Samuel Clason',82,'SUA');
+commit;
+INSERT INTO carteata.author VALUES (12,'Siegel','Dan',66,'SUA');
+commit;
+INSERT INTO carteata.author VALUES (13,'Binder','Irina',38,'Ramania');
+commit;
+INSERT INTO carteata.author VALUES (14,'Haidt','Jonathan',60,'SUA');
+commit;
+INSERT INTO carteata.author VALUES (15,'Printul','Harry',39,'Marea Britanie');
 commit;
 
 
