@@ -15,10 +15,10 @@ public class DataProvider {
     private static final String PASSWORD = "";
     private static final String MAX_POOL = "250";
 
-    public List<Book> getBooks() {
+    public List<Book> getBooks(String bookType) {
         System.out.println("Running ...");
         MysqlConnect mysqlConnect = new MysqlConnect();
-        String sql = "SELECT name FROM book";
+        String sql = "SELECT * FROM book where ProductType = '" + bookType + "'";
         List<Book> bookList = new LinkedList<>();
         try {
             Statement stmt = mysqlConnect.connect().createStatement();
@@ -27,9 +27,10 @@ public class DataProvider {
             while (rs.next()) {
                 //int x = rs.getInt("a");
                 String bookName = rs.getString("name");
-                //float f = rs.getFloat("c");
+                String imageBook = rs.getString("image");
                 Book book = new Book();
                 book.setName(bookName);
+                book.setImage(imageBook);
                 book.setAuthor("fsgsg");
                 bookList.add(book);
             }

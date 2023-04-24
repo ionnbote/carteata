@@ -3,7 +3,7 @@ package model;
 public class Book {
     private String name;
     private String author;
-    private int year;
+    private String image;
 
     public String getName() {
         return name;
@@ -21,11 +21,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getYear() {
-        return year;
+    public String getImage() {
+        return image;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
