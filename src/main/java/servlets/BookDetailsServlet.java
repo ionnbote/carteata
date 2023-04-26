@@ -19,12 +19,34 @@ public class BookDetailsServlet extends HttpServlet {
         PrintWriter pw = response.getWriter();
         pw.println("<html>");
         pw.println("<head>");
+        pw.println("<title>Carti</title>");
+        pw.println("<link href=\"style.css\" rel=\"stylesheet\">");
+        pw.println("<meta charset=\"utf-8\">\n" +
+                "    <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">\n" +
+                "    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\" rel=\"stylesheet\">\n" +
+                "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js\"></script>\n" +
+                "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
 
         pw.println("<body>");
-        pw.println("Selected book " + strId);
-        pw.println("<br/>book name: " + book.getName());
-
-        pw.println("</body></html>");
+        pw.println("<div class=\"container\">");
+        pw.println("<table class=\"table\">");
+        pw.println("<thead>");
+        pw.println("<tr>");
+        pw.println("<th>Firstname</th>");
+        pw.println("<th>Lastname</th>");
+        pw.println("<th>Email</th>");
+        pw.println("</tr>");
+        pw.println("</thead>");
+        pw.println("<tbody>");
+//        pw.println("<html>");
+//        pw.println("<head>");
+//        pw.println("</head>");
+//
+//        pw.println("<body>");
+//        pw.println("Selected book " + strId);
+//        pw.println("<br/>book name: " + book.getName());
+//
+//        pw.println("</body></html>");
     }
 }
