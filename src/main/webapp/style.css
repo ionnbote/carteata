@@ -66,6 +66,9 @@ h3{
 img {
   vertical-align: middle;
   border-style: none;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 a {
   color: black;

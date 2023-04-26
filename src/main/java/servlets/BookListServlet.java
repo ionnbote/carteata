@@ -32,17 +32,22 @@ public class BookListServlet extends HttpServlet {
                 "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js\"></script>\n" +
                 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
+
         pw.println("<body>");
-        pw.println("Welcome to servlet");
+        pw.println("<div class=\"container\">");
         for (int i = 0; i < bookList.size(); i++) {
-            pw.println("<br/>MyBook nr. " + i);
-            pw.println("<br/>Name " + bookList.get(i).getName());
-            String img = "<br/><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
-                    + bookList.get(i).getImage() + "'/>";
-            System.out.println(img);
+//            pw.println("<br/>MyBook nr. " + i);
+            //pw.println("<br/> " +bookList.get(i).getName());
+            int bookId = bookList.get(i).getId();
+            String img = "<a href=\"book?id=" + bookId +
+                    "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
+                    + bookList.get(i).getImage() + "'/></a>";
+//            System.out.println(img);
             pw.println(img);
-            pw.println("<hr/>");
+//            pw.println("<hr/>");
         }
+        pw.println("</div>");
+        pw.println("<hr/>TOTAL: " + bookList.size() + " carti.");
         pw.println("</body></html>");
 
         pw.close();//closing the stream

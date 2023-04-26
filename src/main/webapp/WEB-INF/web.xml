@@ -1,5 +1,4 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee"
          version="3.1">
     <servlet>
         <servlet-name>welcome</servlet-name>
@@ -9,6 +8,10 @@
         <servlet-name>booklist</servlet-name>
         <servlet-class>servlets.BookListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>bookdetails</servlet-name>
+        <servlet-class>servlets.BookDetailsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
         <url-pattern>/welcome</url-pattern>
@@ -17,8 +20,11 @@
         <servlet-name>booklist</servlet-name>
         <url-pattern>/books</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bookdetails</servlet-name>
+        <url-pattern>/book</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 </web-app>
