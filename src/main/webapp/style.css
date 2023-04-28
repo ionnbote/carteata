@@ -39,7 +39,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  background-image: url('images/cer.jpg');
+  background-image: url('images/carti.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -51,6 +51,14 @@ body {
 }
 h3{
   color: var(--green);
+}
+h2{
+   font-family:verdana;
+   color: black;
+}
+h4{
+   font-family:verdana;
+   color: black;
 }
 .tb-darkgrey {
   background-color: gray;
@@ -279,3 +287,14 @@ p a {
         margin-right: 0;
       }
     }
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}

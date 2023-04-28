@@ -1,15 +1,23 @@
 package model;
 
 public class Book {
+    private Author author;
     private int id;
     private String image;
     private String name;
-    private String author;
     private String EditionName;
     private int EditionYear;
     private int page;
     private String ISBN;
     private int price;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     public int getId() {
         return id;
@@ -33,14 +41,6 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getEditionName() {

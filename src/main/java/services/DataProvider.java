@@ -1,5 +1,6 @@
 package services;
 
+import model.Author;
 import model.Book;
 
 import java.sql.ResultSet;
@@ -33,7 +34,6 @@ public class DataProvider {
                 book.setId(bookId);
                 book.setName(bookName);
                 book.setImage(imageBook);
-                book.setAuthor("fsgsg");
                 bookList.add(book);
             }
         } catch (SQLException e) {
@@ -47,8 +47,10 @@ public class DataProvider {
 
     public Book getBook(String id) {
         MysqlConnect mysqlConnect = new MysqlConnect();
-        String sql = "SELECT * FROM book where BookId = '" + id + "'";
+        String sql = "SELECT b.*, a.LastName, a.FirstName FROM carteata.book as b " +
+                "inner join carteata.author as a on a.AuthorId = b.AuthorId where BookId = '" + id + "'";
         Book book = new Book();
+        Author author = new Author();
         try {
             Statement stmt = mysqlConnect.connect().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -56,10 +58,26 @@ public class DataProvider {
                 String bookName = rs.getString("name");
                 String imageBook = rs.getString("image");
                 int bookId = rs.getInt("BookId");
+                String editionName = rs.getString("EditionName");
+                int editionYear = rs.getInt("EditionYear");
+                int page = rs.getInt("Page");
+                String isbn = rs.getString("ISBN");
+                int price = rs.getInt("Price");
+                String firstName = rs.getString("FirstName");
+                String lastName = rs.getString("LastName");
+                author.setLastName(lastName);
+                author.setFirstName(firstName);
                 book.setId(bookId);
                 book.setName(bookName);
                 book.setImage(imageBook);
-                book.setAuthor("fsgsg");
+                book.setAuthor(author);
+                book.setEditionName(editionName);
+                book.setEditionYear(editionYear);
+                book.setISBN(isbn);
+                book.setPage(page);
+                book.setPrice(price);
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

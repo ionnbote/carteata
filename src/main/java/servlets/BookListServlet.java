@@ -37,14 +37,14 @@ public class BookListServlet extends HttpServlet {
         pw.println("<div class=\"container\">");
         for (int i = 0; i < bookList.size(); i++) {
 //            pw.println("<br/>MyBook nr. " + i);
-            //pw.println("<br/> " +bookList.get(i).getName());
+//            pw.println("<br/> " +bookList.get(i).getName());
             int bookId = bookList.get(i).getId();
             String img = "<a href=\"book?id=" + bookId +
                     "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
                     + bookList.get(i).getImage() + "'/></a>";
 //            System.out.println(img);
-            pw.println(img);
 //            pw.println("<hr/>");
+            pw.println(img);
         }
         pw.println("</div>");
         pw.println("<hr/>TOTAL: " + bookList.size() + " carti.");
