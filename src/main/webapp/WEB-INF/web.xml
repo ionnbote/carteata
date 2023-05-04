@@ -20,6 +20,10 @@
         <servlet-name>indexbooks</servlet-name>
         <servlet-class>servlets.index_books</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>topbooks</servlet-name>
+        <servlet-class>servlets.TopBooksServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
@@ -34,12 +38,16 @@
         <url-pattern>/book</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>indexbooks</servlet-name>
+        <url-pattern>/indexbooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>newbooks</servlet-name>
         <url-pattern>/newbooks</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>indexbooks</servlet-name>
-        <url-pattern>/indexbooks</url-pattern>
+        <servlet-name>topbooks</servlet-name>
+        <url-pattern>/topbooks</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

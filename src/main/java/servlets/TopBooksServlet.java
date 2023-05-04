@@ -10,14 +10,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class BookListServlet extends HttpServlet {
+public class TopBooksServlet extends HttpServlet {
     DataProvider dataProvider = new DataProvider();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");//setting the content type
         PrintWriter pw = response.getWriter();//get the stream to write the data
-        String booktype = request.getParameter("type");
-        List<Book> bookList = dataProvider.getBooks(booktype);
-        //writing html in the stream
+
+        String editionYearStr = request.getParameter("editionYear");
+        int editionYear = editionYearStr == null ? 0 : Integer.parseInt(editionYearStr);
+
+        List<Book> newBooksList = dataProvider.getNewBooks(editionYear);
         pw.println("<html>");
         pw.println("<head>");
         pw.println("<title>Carti</title>");
@@ -28,26 +31,23 @@ public class BookListServlet extends HttpServlet {
                 "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js\"></script>\n" +
                 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
-
         pw.println("<body>");
         pw.println("<div class=\"_container-fluid top-bar-banner\">");
-        pw.println("<h2><center> " + booktype + "</center>");
+        pw.println("<h2><center> " + "Top carti" + "</center>");
         pw.println("</h2>");
         pw.println("<hr>");
         pw.println("</div>");
-
-        for (int i = 0; i < bookList.size(); i++) {
-            int bookId = bookList.get(i).getId();
+        for (int i = 0; i < newBooksList.size(); i++) {
+            int bookId = newBooksList.get(i).getId();
             String img = "<a href=\"book?id=" + bookId +
                     "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
-                    + bookList.get(i).getImage() + "'/></a>";
+                    + newBooksList.get(i).getImage() + "'/></a>";
             pw.println(img);
         }
-//        pw.println("</div>");
-        pw.println("<hr/>TOTAL: " + bookList.size() + " carti.");
+        pw.println("<hr/>TOTAL: " + newBooksList.size() + " carti.");
         pw.println("</body></html>");
 
-        pw.close();//closing the stream
+        pw.close();
 
     }
 }

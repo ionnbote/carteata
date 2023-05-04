@@ -50,14 +50,13 @@ public class DataProvider {
     public List<Book> getNewBooks(int editionYear) {
         System.out.println("Running ...");
         MysqlConnect mysqlConnect = new MysqlConnect();
-        String sql = "SELECT * FROM book where EditionYear = '" + editionYear + "'";
+        String sql = "SELECT * FROM book where EditionYear > '" + editionYear + "'";
         List<Book> bookList = new LinkedList<>();
         try {
             Statement stmt = mysqlConnect.connect().createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Printing results from DB...");
             while (rs.next()) {
-                //int x = rs.getInt("a");
                 String bookName = rs.getString("name");
                 String imageBook = rs.getString("image");
                 int bookId = rs.getInt("BookId");
@@ -75,7 +74,6 @@ public class DataProvider {
 
         return bookList;
     }
-
     public Book getBook(String id) {
         MysqlConnect mysqlConnect = new MysqlConnect();
         String sql = "SELECT b.*, a.LastName, a.FirstName FROM carteata.book as b " +
