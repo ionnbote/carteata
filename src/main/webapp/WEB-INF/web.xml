@@ -1,5 +1,5 @@
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         version="3.1">
+<web-app
+        version="3.1">
     <servlet>
         <servlet-name>welcome</servlet-name>
         <servlet-class>servlets.WelcomeServlet</servlet-class>
@@ -12,6 +12,15 @@
         <servlet-name>bookdetails</servlet-name>
         <servlet-class>servlets.BookDetailsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>newbooks</servlet-name>
+        <servlet-class>servlets.NewBooksServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>indexbooks</servlet-name>
+        <servlet-class>servlets.index_books</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
         <url-pattern>/welcome</url-pattern>
@@ -24,7 +33,17 @@
         <servlet-name>bookdetails</servlet-name>
         <url-pattern>/book</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newbooks</servlet-name>
+        <url-pattern>/newbooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>indexbooks</servlet-name>
+        <url-pattern>/indexbooks</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
 </web-app>

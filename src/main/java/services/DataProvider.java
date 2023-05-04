@@ -29,6 +29,37 @@ public class DataProvider {
                 //int x = rs.getInt("a");
                 String bookName = rs.getString("name");
                 String imageBook = rs.getString("image");
+                String productType = rs.getString("ProductType");
+                int bookId = rs.getInt("BookId");
+                Book book = new Book();
+                book.setId(bookId);
+                book.setName(bookName);
+                book.setImage(imageBook);
+                book.setProductType(productType);
+                bookList.add(book);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            mysqlConnect.disconnect();
+        }
+
+        return bookList;
+    }
+
+    public List<Book> getNewBooks(int editionYear) {
+        System.out.println("Running ...");
+        MysqlConnect mysqlConnect = new MysqlConnect();
+        String sql = "SELECT * FROM book where EditionYear = '" + editionYear + "'";
+        List<Book> bookList = new LinkedList<>();
+        try {
+            Statement stmt = mysqlConnect.connect().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("Printing results from DB...");
+            while (rs.next()) {
+                //int x = rs.getInt("a");
+                String bookName = rs.getString("name");
+                String imageBook = rs.getString("image");
                 int bookId = rs.getInt("BookId");
                 Book book = new Book();
                 book.setId(bookId);
@@ -57,6 +88,7 @@ public class DataProvider {
             if (rs.next()) {
                 String bookName = rs.getString("name");
                 String imageBook = rs.getString("image");
+                String productType = rs.getString("ProductType");
                 int bookId = rs.getInt("BookId");
                 String editionName = rs.getString("EditionName");
                 int editionYear = rs.getInt("EditionYear");
@@ -71,6 +103,7 @@ public class DataProvider {
                 book.setName(bookName);
                 book.setImage(imageBook);
                 book.setAuthor(author);
+                book.setProductType(productType);
                 book.setEditionName(editionName);
                 book.setEditionYear(editionYear);
                 book.setISBN(isbn);

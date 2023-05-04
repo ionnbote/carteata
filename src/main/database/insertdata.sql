@@ -57,6 +57,9 @@ INSERT INTO carteata.book VALUES (17,"Dictionar de ononime.jpg","Dictionar de on
 INSERT INTO carteata.book VALUES (18,"Dictionar explicativ ilustrat.jpg","Dictionar explicativ ilustrat",16,"ARC",2010,2280,"Dicionare",306499, 615.80);
 INSERT INTO carteata.book VALUES (19,"Dictionar explicativ scolar.jpg","Dictionar explicativ scolar",17,"Stiinta",2021,432,"Dicionare",314680, 69.00);
 INSERT INTO carteata.book VALUES (20,"Dictionar Roman-Englez.jpg","Dictionar Roman-Englez",18,"Teora",2006,1336,"Dicionare",445426, 432.90);
+INSERT INTO carteata.book VALUES (21,"limba romana cl12.jpg","Limba romana cl 12",19,"Cartier",2021,156,"Manuale scolare",674391, 49.00);
+INSERT INTO carteata.book VALUES (22,"Matemateca cl12.jpg","Matemateca cl 12",20,"Tipografia Orhei",2021,169,"Manuale scolare",669595, 53.00);
+INSERT INTO carteata.book VALUES (23,"Informarica cl12.jpg","Informatica cl 12",21,"Stiinta",2019,145,"Manuale scolare",627975, 42.00);
 commit;
 
 INSERT INTO carteata.author VALUES (1,'Jaky','Eddie',98,'Germania');
@@ -76,6 +79,9 @@ INSERT INTO carteata.author VALUES (15,'Printul','Harry',39,'Marea Britanie');
 INSERT INTO carteata.author VALUES (16,'Bahnaru','Viorel',73,'Republica Moldova');
 INSERT INTO carteata.author VALUES (17,'Hincu','Dumitru',48,'Republica Moldova');
 INSERT INTO carteata.author VALUES (18,'Levitchi','Leon',79,'Republica Moldova');
+INSERT INTO carteata.author VALUES (19,'Condrea','Igor',79,'Republica Moldova');
+INSERT INTO carteata.author VALUES (20,'Iavorschi','Victor',63,'Republica Moldova');
+INSERT INTO carteata.author VALUES (21,'Anghel','Traian',52,'Republica Moldova');
 commit;
 
 

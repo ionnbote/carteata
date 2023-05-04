@@ -14,7 +14,7 @@ public class BookDetailsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String strId = request.getParameter("id");
         Book book = dataProvider.getBook(strId);
-        String img = "<a href=\"book?id=" +
+        String img = "<a href=\"Carti.html" +
                 "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
                 + book.getImage() + "'/></a>";
         PrintWriter pw = response.getWriter();
@@ -59,7 +59,7 @@ public class BookDetailsServlet extends HttpServlet {
         pw.println("</tr>");
         pw.println("<td><h4>" + "Pret" + "</h4></td>");
         pw.println("<td>" + "--------------------" + " </td>");
-        pw.println("<td><h4>" + book.getPrice() + "</h4></td>");
+        pw.println("<td><h4>" + book.getPrice() + " lei " + "</h4></td>");
         pw.println("</table>");
 
     }

@@ -7,6 +7,7 @@ public class Book {
     private String name;
     private String EditionName;
     private int EditionYear;
+    private String ProductType;
     private int page;
     private String ISBN;
     private int price;
@@ -81,5 +82,13 @@ public class Book {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getProductType() {
+        return ProductType;
+    }
+
+    public void setProductType(String productType) {
+        ProductType = productType;
     }
 }

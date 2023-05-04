@@ -1,22 +1,24 @@
 package servlets;
 
-import model.Book;
 import services.DataProvider;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
-public class BookListServlet extends HttpServlet {
+public class index_books {
     DataProvider dataProvider = new DataProvider();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");//setting the content type
         PrintWriter pw = response.getWriter();//get the stream to write the data
-        String booktype = request.getParameter("type");
-        List<Book> bookList = dataProvider.getBooks(booktype);
+
+        String bookType = request.getParameter("type");
+        //int nr = Integer.parseInt(nrOfBooks);
+
+//        List<Book> bookList = dataProvider.getBooks(bookType);
+
         //writing html in the stream
         pw.println("<html>");
         pw.println("<head>");
@@ -30,22 +32,17 @@ public class BookListServlet extends HttpServlet {
         pw.println("</head>");
 
         pw.println("<body>");
-//        pw.println("<div class=\"container\">");
-        pw.println("<div class=\"_container-fluid top-bar-banner\">");
-        pw.println("<h2><center> " + booktype + "</center>");
-        pw.println("</h2>");
-        pw.println("<hr>");
+        pw.println("<div class=\"container\">");
+        pw.println("<button class=\"btn btn-beletristica\" type=\"button\"><a href=\"books?type=Beletristica\">Beletristica</a><span>5</span>");
+        pw.println("</button>");
+        pw.println("<button class=\"btn btn-copii\" type=\"button\"><a href=\"books?type=Carti%20pentru%20copii\">Carti pentru copii</a><span>5</span>");
+        pw.println("</button>");
+        pw.println("<button class=\"btn btn-dictionare\" type=\"button\"><a href=\"books?type=Dictionare\">Dictionare</a><span>5</span>");
+        pw.println("</button>");
+        pw.println("<button class=\"btn btn-manuale\" type=\"button\"><a href=\"Manuale.html\">Manuale scolare</a><span>5</span></button>");
+        pw.println("<button class=\"btn btn-english\" type=\"button\"><a href=\"EnglishBooks.html\">Books in English</a><span>5</span>");
+        pw.println("</button>");
         pw.println("</div>");
-
-        for (int i = 0; i < bookList.size(); i++) {
-            int bookId = bookList.get(i).getId();
-            String img = "<a href=\"book?id=" + bookId +
-                    "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
-                    + bookList.get(i).getImage() + "'/></a>";
-            pw.println(img);
-        }
-//        pw.println("</div>");
-        pw.println("<hr/>TOTAL: " + bookList.size() + " carti.");
         pw.println("</body></html>");
 
         pw.close();//closing the stream
