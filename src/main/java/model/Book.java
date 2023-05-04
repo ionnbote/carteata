@@ -1,6 +1,14 @@
 package model;
 
 public class Book {
+
+    public Book() {
+    }
+
+    public Book(int id) {
+        this.id = id;
+    }
+
     private Author author;
     private int id;
     private String image;

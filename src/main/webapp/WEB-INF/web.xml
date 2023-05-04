@@ -24,6 +24,14 @@
         <servlet-name>topbooks</servlet-name>
         <servlet-class>servlets.TopBooksServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchbooks</servlet-name>
+        <servlet-class>servlets.SearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mycart</servlet-name>
+        <servlet-class>servlets.CartServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
@@ -48,6 +56,14 @@
     <servlet-mapping>
         <servlet-name>topbooks</servlet-name>
         <url-pattern>/topbooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchbooks</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mycart</servlet-name>
+        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

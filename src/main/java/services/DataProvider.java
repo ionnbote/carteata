@@ -48,9 +48,18 @@ public class DataProvider {
     }
 
     public List<Book> getNewBooks(int editionYear) {
+        String sql = "SELECT * FROM book where EditionYear > '" + editionYear + "'";
+        return getBooksFromDB(sql);
+    }
+
+    public List<Book> searchByName(String search) {
+        String sql = "SELECT * FROM book where Name like '" + search + "%'";
+        return getBooksFromDB(sql);
+    }
+
+    private List<Book> getBooksFromDB(String sql) {
         System.out.println("Running ...");
         MysqlConnect mysqlConnect = new MysqlConnect();
-        String sql = "SELECT * FROM book where EditionYear > '" + editionYear + "'";
         List<Book> bookList = new LinkedList<>();
         try {
             Statement stmt = mysqlConnect.connect().createStatement();
