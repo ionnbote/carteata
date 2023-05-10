@@ -50,18 +50,53 @@ public class CartServlet extends HttpServlet {
         pw.println("<div class=\"_container-fluid top-bar-banner\">");
         pw.println("<h2><center> " + "Cosul Meu" + "</center>");
         pw.println("</h2>");
-        pw.println("<hr>");
         pw.println("</div>");
+        pw.println("<table class='table'>");
+        pw.println("<thead>");
+        pw.println("<tr>");
+        pw.println("<th>Nr.</th>");
+        pw.println("<th>Carte</th>");
+        pw.println("<th>Numarul de carti de acelasi fel</th>");
+        pw.println("<th>Subtotal</th>");
+        pw.println("</tr>");
+        pw.println("</thead>");
+        pw.println("<tbody>");
+        pw.println("<tr>");
         for (int i = 0; i < bookList.size(); i++) {
             int bookId = bookList.get(i).getId();
             String img = "<a href=\"book?id=" + bookId +
                     "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
                     + bookList.get(i).getImage() + "'/></a>";
-            //pw.println(img);
-            pw.println(i + 1 + ". <a href='book?id=" + bookList.get(i).getId() + "&show-add-to-cart=false'>"
-                    + bookList.get(i).getName() + "</a><hr>");
+            pw.println("<tr>");
+            pw.println("<td>");
+            pw.println(i + 1);
+            pw.println("</td>");
+            pw.println("<td><a href='book?id=" + bookList.get(i).getId() + "&show-add-to-cart=false'>" +
+                    bookList.get(i).getName() + "</a></td>");
+            pw.println("<td>1</td>");
+            pw.println("<td> " + bookList.get(i).getPrice() + " " + "lei" + "</td>");
+            pw.println("<td>");
+            pw.println("<ul class='list-inline m-0'>");
+            pw.println("<li class='list-inline-item'>");
+            pw.println("<button class='btn btn-primary btn-sm rounded-0'type='button' data-toggle='tooltip' data-placement='top' title='Add'><i class='fa fa-table'>Adauga</i></button>");
+            pw.println("</li>");
+            pw.println("<li class='list-inline-item'>");
+            pw.println("<button class='btn btn-success btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Edit'><i class='fa fa-edit'>Editeaza</i></button>");
+            pw.println("</li>");
+            pw.println("<li class='list-inline-item'>");
+            pw.println("<button class='btn btn-danger btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Delete'><i class='fa fa-trash'>Sterge</i></button>");
+            pw.println("</li>");
+            pw.println("</ul>");
+            pw.println("</td>");
         }
-        pw.println("TOTAL: " + bookList.size() + " carti.");
+        pw.println("</tbody>");
+        pw.println("</table>");
+        pw.println("<ul class='pager'>");
+        pw.println("<li><a href='index.html'>Pagina principala </a></li>");
+        pw.println("<li><a href='Carti.html'>Carti</a></li>");
+        pw.println("</ul>");
+        pw.println("</section>");
+        pw.println("</div");
         pw.println("</body></html>");
 
         pw.close();

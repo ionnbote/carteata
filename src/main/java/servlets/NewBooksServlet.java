@@ -20,7 +20,7 @@ public class NewBooksServlet extends HttpServlet {
         String editionYearStr = request.getParameter("editionYear");
         int editionYear = editionYearStr == null ? 0 : Integer.parseInt(editionYearStr);
 
-        List<Book> newBooksList = dataProvider.getNewBooks(editionYear);
+        List<Book> newBooks = dataProvider.getNewBooks(editionYear);
         pw.println("<html>");
         pw.println("<head>");
         pw.println("<title>Carti</title>");
@@ -37,14 +37,20 @@ public class NewBooksServlet extends HttpServlet {
         pw.println("</h2>");
         pw.println("<hr>");
         pw.println("</div>");
-        for (int i = 0; i < newBooksList.size(); i++) {
-            int bookId = newBooksList.get(i).getId();
+        for (int i = 0; i < newBooks.size(); i++) {
+            int bookId = newBooks.get(i).getId();
             String img = "<a href=\"book?id=" + bookId +
                     "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
-                    + newBooksList.get(i).getImage() + "'/></a>";
+                    + newBooks.get(i).getImage() + "'/></a>";
             pw.println(img);
         }
-        pw.println("<hr/>TOTAL: " + newBooksList.size() + " carti.");
+        pw.println("<hr/>TOTAL: " + newBooks.size() + " carti.");
+        pw.println("<ul class='pager'>");
+        pw.println("<li><a href='index.html'>Pagina principala</a></li>");
+        pw.println("<li><a href='Carti.html'>Carti</a></li>");
+        pw.println("<li><a href='topbooks?editionYear=2021'>Top carti</a></li>");
+        pw.println("</ul>");
+        pw.println("</div");
         pw.println("</body></html>");
 
         pw.close();

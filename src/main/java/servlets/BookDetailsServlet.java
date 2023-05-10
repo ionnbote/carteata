@@ -69,8 +69,7 @@ public class BookDetailsServlet extends HttpServlet {
         pw.println("</table>");
 
         if (!"false".equals(showCart)) {
-            pw.println("<a class=\"btn btn-primary\" href='cart?id=" + book.getId() +
-                    "' role=\"button\">Adauga aceasta carte in cos</a>");
+            pw.println("<a class=\"btn btn-danger\" href='cart?id=" + book.getId() + "'role=\"button\">Adauga aceasta carte in cos</a>");
         }
     }
 }

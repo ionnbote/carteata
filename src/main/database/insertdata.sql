@@ -63,6 +63,24 @@ INSERT INTO carteata.book VALUES (23,"Informarica cl12.jpg","Informatica cl 12",
 INSERT INTO carteata.book VALUES (24,"English in Mind.jpg","English in Mind",22,"Cambridge University Press",2016,345,"Books in English",690187, 256.00);
 INSERT INTO carteata.book VALUES (25,"Christmas in 80 English.jpg","Christmas in 80 English",23,"Anfora",2022,96,"Books in English",693281, 147.00);
 INSERT INTO carteata.book VALUES (26,"English Grammar in Use 5th Edition Intermediate + key.jpg","English Grammar in Use 5th Edition Intermediate + key",24,"RAO",2015,221,"Books in English",684810, 267.00);
+INSERT INTO carteata.book VALUES (27,"Dictionar poligrot de Marketing.jpg","Dictionar poligrot de Marketing",25,"Cartier",2022,251,"Dictionare",703291, 249.00);
+INSERT INTO carteata.book VALUES (28,"Dictionar poliglot de aforisme si expresii latine.jpg","Dictionar poliglot de aforisme si expresii latine",25,"Cartier",2022,237,"Dictionare",703292, 224.00);
+INSERT INTO carteata.book VALUES (29,"Dictionar de ghicitori.jpg","Dictionar de ghicitori",26,"Litera",2015,183,"Dictionare",412100, 174.00);
+INSERT INTO carteata.book VALUES (30,"Dictionar de sinonime.jpg","Dictionar de sinonime",27,"Biblion",2013,210,"Dictionare",331367, 54.00);
+INSERT INTO carteata.book VALUES (31,"Dictionar de informatica.jpg","Dictionar de informatica",21,"Corint",2017,448,"Dictionare",656709, 347.00);
+INSERT INTO carteata.book VALUES (34,"Universul intr-o picatura de apa.jpg","Universul intr-o picatura de apa",21,"Corint",2021,208,"beletristica",662107, 265.00);
+INSERT INTO carteata.book VALUES (35,"Din ce este construita lumea.jpg","Din ce este construita lumea",21,"Corint",2021,248,"beletristica",673468, 276.00);
+INSERT INTO carteata.book VALUES (36,"Enciclopedia ilustrata pentru copii.jpg","Enciclopedia ilustrata pentru copii.",28,"Litera",2020,543,"Carti pentru copii",579747, 845.00);
+INSERT INTO carteata.book VALUES (37,"Experimente pentru copii.jpg","Experimente pentru copii",29,"Flamingo",2019,121,"Carti pentru copii",612175, 111.00);
+INSERT INTO carteata.book VALUES (38,"Chimie anorganica cl 10.jpg","Chimie anorganica cl 10",30,"Prut International",2021,178,"Manuale scolare",663591, 32.00);
+INSERT INTO carteata.book VALUES (39,"Chimie organica cl 11.jpg","Chimie organica cl 11",30,"Prut International",2021,180,"Manuale scolare",663590, 32.00);
+INSERT INTO carteata.book VALUES (40,"Compunerile scolare Editia 9.jpg","Compunerile scolare Editia 9",31,"Polirom Buc.",2022,376,"Manuale scolare",700837, 193.00);
+INSERT INTO carteata.book VALUES (41,"Compuneri scolare Editia cl 7.jpg","Compuneri scolare Editia cl 7",31,"Polirom Buc.",2022,323,"Manuale scolare",700838, 189.00);
+INSERT INTO carteata.book VALUES (42,"Compunerile scolare Editia cl 3.jpg","Compunerile scolare Editia cl 3",31,"Polirom Buc.",2022,301,"Manuale scolare",700835, 172.00);
+INSERT INTO carteata.book VALUES (43,"Insomnii.jpg","Insomnii",13,"For You",2017,352,"Beletristica",477189, 203.00);
+INSERT INTO carteata.book VALUES (44,"Strainul de linga mine.jpg","Strainul de linga mine",13,"For You",2018,288,"Beletristica",568308, 170.00);
+INSERT INTO carteata.book VALUES (45,"Iubirea te invata.jpg","Iubirea te invata",13,"For You",2021,264,"Beletristica",671823, 190.00);
+INSERT INTO carteata.book VALUES (46,"Nu exista nu se poate.jpg","Nu exista nu se poate",32,"Bookzone",2022,378,"Beletristica",685348, 310.00);
 commit;
 
 INSERT INTO carteata.author VALUES (1,'Jaky','Eddie',98,'Germania');
@@ -88,6 +106,14 @@ INSERT INTO carteata.author VALUES (21,'Anghel','Traian',52,'Republica Moldova')
 INSERT INTO carteata.author VALUES (22,'Puchta','Herbert',83,'SUA');
 INSERT INTO carteata.author VALUES (23,'Kovtun','Anastasia',31,'Rusia');
 INSERT INTO carteata.author VALUES (24,'Murphy','Raymond',73,'Marea Britanie');
+INSERT INTO carteata.author VALUES (25,'Mincu','Eugenia',44,'Republica Moldova');
+INSERT INTO carteata.author VALUES (26,'Padure','Angela',53,'Republica Moldova');
+INSERT INTO carteata.author VALUES (27,'Vulpe','Ana',61,'Republica Moldova');
+INSERT INTO carteata.author VALUES (28,'Vrabie','Irina',46,'Republica Moldova');
+INSERT INTO carteata.author VALUES (29,'Iraid','Cristina',41,'Republica Moldova');
+INSERT INTO carteata.author VALUES (30,'Ureche','Dumitru',57,'Republica Moldova');
+INSERT INTO carteata.author VALUES (31,'Sandu','Elena',53,'Romania');
+INSERT INTO carteata.author VALUES (32,'Marin','Andreea',48,'Romania');
 commit;
 
 

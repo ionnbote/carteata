@@ -57,6 +57,11 @@ public class DataProvider {
         return getBooksFromDB(sql);
     }
 
+    public List<Book> getRecomendedBooks(String editionName) {
+        String sql = "SELECT * FROM book where EditionName > '" + editionName + "'";
+        return getBooksFromDB(sql);
+    }
+
     private List<Book> getBooksFromDB(String sql) {
         System.out.println("Running ...");
         MysqlConnect mysqlConnect = new MysqlConnect();
@@ -69,10 +74,12 @@ public class DataProvider {
                 String bookName = rs.getString("name");
                 String imageBook = rs.getString("image");
                 int bookId = rs.getInt("BookId");
+                String editionName = rs.getString("EditionName");
                 Book book = new Book();
                 book.setId(bookId);
                 book.setName(bookName);
                 book.setImage(imageBook);
+                book.setEditionName(editionName);
                 bookList.add(book);
             }
         } catch (SQLException e) {

@@ -34,7 +34,7 @@ public class SearchServlet extends HttpServlet {
         pw.println("</head>");
         pw.println("<body>");
         pw.println("<div class=\"_container-fluid top-bar-banner\">");
-        pw.println("<h2><center> " + "C&#227r&#355i noi" + "</center>");
+        pw.println("<h2><center> " + "Rezultatul cautarii" + "</center>");
         pw.println("</h2>");
         pw.println("<hr>");
         pw.println("</div>");

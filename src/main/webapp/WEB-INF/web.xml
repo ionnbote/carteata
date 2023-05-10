@@ -32,6 +32,10 @@
         <servlet-name>mycart</servlet-name>
         <servlet-class>servlets.CartServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>recomendation</servlet-name>
+        <servlet-class>servlets.RecomendedBooksServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
@@ -64,6 +68,10 @@
     <servlet-mapping>
         <servlet-name>mycart</servlet-name>
         <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>recomendation</servlet-name>
+        <url-pattern>/recomendation</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

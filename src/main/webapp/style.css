@@ -49,6 +49,10 @@ body {
 ._container-fluid{
   background: lightblue;
 }
+h1{
+    text-align:center;
+    color: red;
+}
 h3{
   color: var(--green);
 }
@@ -131,7 +135,7 @@ a {
   right:-400px;
   text-align: right;
   height: 50px;
-  width: 500px;
+  width: 250px;
   font-size: 25px;
 }
 
@@ -140,7 +144,7 @@ a {
   margin:0;
   position:relative;
   top:-105px;
-  right:-1000px;
+  right:-750px;
   text-align: center;
   height: 30px;
   width: 30px; 
@@ -151,7 +155,7 @@ a {
   margin: 0px;
   position:relative;
   top:-105px;
-  right:-700px;
+  right:-450px;
   text-align: center;
   height: 30px;
   width: 30px; 
@@ -281,13 +285,6 @@ p a {
 
                                         /* Style CreazaCont  */
 
-
-    @media (max-width: 99.98px) {
-      .cascading-right {
-        margin-right: 0;
-      }
-    }
-
 .table {
   border-collapse: collapse;
   width: 100%;
@@ -314,23 +311,25 @@ p a {
 
     .top-bar-wrapper {
       font-size: 15px;
-      padding: 0 30px;
+      padding: 0 50px;
       display: flex;
       text-align: right;
     }
-     .contul_meu{
-      color: #28a745;
-      margin:0;
-      position:relative;
-      top:-105px;
-      right:-500px;
-      text-align: center;
-      height: 30px;
-      width: 30px;
-      font-size: 12px;
-    }
       .nav {
         flex-direction: row;
+      }
+      .BookDetailsServlet{
+        font-size: 16px;
+      }
+      .img{
+        width: 130px;
+        height: 130px;
+      }
+
+      .th, td {
+        padding: 5px;
+        width: 100%;
+        height: 100%;
       }
 
 }

@@ -45,6 +45,12 @@ public class TopBooksServlet extends HttpServlet {
             pw.println(img);
         }
         pw.println("<hr/>TOTAL: " + newBooksList.size() + " carti.");
+        pw.println("<ul class='pager'>");
+        pw.println("<li><a href='index.html'>Pagina principala</a></li>");
+        pw.println("<li><a href='Carti.html'>Carti</a></li>");
+        pw.println("<li><a href='newbooks?editionYear=2020'>Cati noi</a></li>");
+        pw.println("</ul>");
+        pw.println("</div");
         pw.println("</body></html>");
 
         pw.close();
