@@ -58,7 +58,7 @@ public class DataProvider {
     }
 
     public List<Book> getRecomendedBooks(String editionName) {
-        String sql = "SELECT * FROM book where EditionName > '" + editionName + "'";
+        String sql = "SELECT * FROM book where EditionName = '" + editionName + "'";
         return getBooksFromDB(sql);
     }
 

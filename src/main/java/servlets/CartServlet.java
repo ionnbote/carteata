@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CartServlet extends HttpServlet {
     DataProvider dataProvider = new DataProvider();
@@ -21,19 +21,34 @@ public class CartServlet extends HttpServlet {
         PrintWriter pw = response.getWriter();//get the stream to write the data
 
         String strId = request.getParameter("id");
+        String action = request.getParameter("action");
 
         HttpSession session = request.getSession();
-        List<Book> bookList = (List<Book>) session.getAttribute("bookList");
-        if (bookList == null) {
-            bookList = new ArrayList<>();
-            session.setAttribute("bookList", bookList);
+        Map<Book, Integer> map = (Map<Book, Integer>) session.getAttribute("bookMap");
+
+        if (map == null) {
+            map = new HashMap<>();
+            session.setAttribute("bookMap", map);
         }
 
         System.out.println("sessionId = " + session.getId());
         if (strId != null) {
-            System.out.println("Adding book to cart, id = " + strId);
-            Book book = dataProvider.getBook(strId);
-            bookList.add(book);
+            if ("add".equals(action)) {
+                System.out.println("Adding book to cart, id = " + strId);
+                Book book = dataProvider.getBook(strId);
+                Integer nrOfBooks = map.get(book);
+                if (nrOfBooks == null) {
+                    map.put(book, 1);
+                } else {
+                    nrOfBooks++;
+                    map.put(book, nrOfBooks);
+                }
+            }
+            if ("delete".equals(action)) {
+                System.out.println("Deleting book from cart, id = " + strId);
+                Book book = dataProvider.getBook(strId);
+                map.remove(book);
+            }
         }
 
         pw.println("<html>");
@@ -62,29 +77,41 @@ public class CartServlet extends HttpServlet {
         pw.println("</thead>");
         pw.println("<tbody>");
         pw.println("<tr>");
-        for (int i = 0; i < bookList.size(); i++) {
-            int bookId = bookList.get(i).getId();
+        int i = 1;
+        for (Book b : map.keySet()) {
+            int bookId = b.getId();
             String img = "<a href=\"book?id=" + bookId +
                     "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
-                    + bookList.get(i).getImage() + "'/></a>";
+                    + b.getImage() + "'/></a>";
             pw.println("<tr>");
             pw.println("<td>");
-            pw.println(i + 1);
+            pw.println(i++);
             pw.println("</td>");
-            pw.println("<td><a href='book?id=" + bookList.get(i).getId() + "&show-add-to-cart=false'>" +
-                    bookList.get(i).getName() + "</a></td>");
-            pw.println("<td>1</td>");
-            pw.println("<td> " + bookList.get(i).getPrice() + " " + "lei" + "</td>");
+            pw.println("<td><a href='book?id=" + b.getId() + "&show-add-to-cart=false'>" +
+                    b.getName() + "</a></td>");
+            pw.println("<td>" + map.get(b) + "</td>");
+            pw.println("<td> " + b.getPrice() * map.get(b) + " " + "lei" + "</td>");
             pw.println("<td>");
             pw.println("<ul class='list-inline m-0'>");
             pw.println("<li class='list-inline-item'>");
-            pw.println("<button class='btn btn-primary btn-sm rounded-0'type='button' data-toggle='tooltip' data-placement='top' title='Add'><i class='fa fa-table'>Adauga</i></button>");
+            pw.println("<form action='cart' method='get'>");
+            pw.println("<button class='btn btn-primary btn-sm rounded-0' type='submit' data-toggle='tooltip' data-placement='top' title='Dubleaza cartea'>" +
+                    "<i class='fa fa-table'>+</i></button>");
+            pw.println("<input type=\"hidden\" value='" + b.getId() + "' name=\"id\">");
+            pw.println("<input type=\"hidden\" value='add' name='action'>");
+            pw.println("</form>");
             pw.println("</li>");
             pw.println("<li class='list-inline-item'>");
-            pw.println("<button class='btn btn-success btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Edit'><i class='fa fa-edit'>Editeaza</i></button>");
+            pw.println("<button class='btn btn-success btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Edit'>" +
+                    "<i class='fa fa-edit'>-</i></button>");
             pw.println("</li>");
             pw.println("<li class='list-inline-item'>");
-            pw.println("<button class='btn btn-danger btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Delete'><i class='fa fa-trash'>Sterge</i></button>");
+            pw.println("<form onsubmit=\"return confirm('Doriti stergerea acestei carti din cos ?');\" action='cart' method='get'>");
+            pw.println("<button class='btn btn-danger btn-sm rounded-0' type='submit' data-toggle='tooltip' data-placement='top' title='Delete'>" +
+                    "<i class='fa fa-trash'>Sterge</i></button>");
+            pw.println("<input type=\"hidden\" value='" + b.getId() + "' name=\"id\">");
+            pw.println("<input type=\"hidden\" value='delete' name='action'>");
+            pw.println("</form>");
             pw.println("</li>");
             pw.println("</ul>");
             pw.println("</td>");
