@@ -1,6 +1,7 @@
 package servlets;
 
 import model.Book;
+import model.User;
 import services.DataProvider;
 
 import javax.servlet.http.HttpServlet;
@@ -17,13 +18,18 @@ public class CartServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            response.sendRedirect("http://localhost:8080/CarteaTa/ContulMeu.html");
+        }
+
         response.setContentType("text/html");//setting the content type
         PrintWriter pw = response.getWriter();//get the stream to write the data
 
         String strId = request.getParameter("id");
         String action = request.getParameter("action");
 
-        HttpSession session = request.getSession();
         Map<Book, Integer> map = (Map<Book, Integer>) session.getAttribute("bookMap");
 
         if (map == null) {
@@ -121,6 +127,7 @@ public class CartServlet extends HttpServlet {
         pw.println("<ul class='pager'>");
         pw.println("<li><a href='index.html'>Pagina principala </a></li>");
         pw.println("<li><a href='Carti.html'>Carti</a></li>");
+        pw.println("<li><a href='details'>Plaseaza comanda</a></li>");
         pw.println("</ul>");
         pw.println("</section>");
         pw.println("</div");
