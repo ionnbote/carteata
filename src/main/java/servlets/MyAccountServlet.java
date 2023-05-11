@@ -40,7 +40,7 @@ public class MyAccountServlet extends HttpServlet {
                 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
         pw.println("<body>");
-        pw.println("Sinteti logat: " + user.getFirstName());
+        pw.println("Sinteti logat: " + user.getFirstName() + " " + user.getLastName());
         pw.println("<hr>");
         pw.println("email: " + user.getEmail());
         pw.println("<hr>");

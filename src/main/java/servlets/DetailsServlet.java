@@ -41,19 +41,47 @@ public class DetailsServlet extends HttpServlet {
                 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
         pw.println("<body>");
-        pw.println("Comanda a fost acceptata. Detalii:");
+        pw.println("<div class=\"_container-fluid top-bar-banner\">");
+        pw.println("<h2><center> " + "Comanda a fost acceptata" + "</center>");
+        pw.println("</h2>");
+        pw.println("</div>");
         pw.println("<hr>");
+        pw.println("<h4> " + "Comanda dvs.:" + "</h4>");
+        pw.println("<table class='table'>");
+        pw.println("<thead>");
+        pw.println("<tr>");
+        pw.println("<th>Nr.</th>");
+        pw.println("<th>Carte</th>");
+        pw.println("<th>Total carti</th>");
+        pw.println("<th>Subtotal</th>");
+        pw.println("</tr>");
+        pw.println("</thead>");
+        pw.println("<tbody>");
+        pw.println("<tr>");
+        int total = 0;
+        int i = 1;
         for (Book b : map.keySet()) {
             int bookId = b.getId();
-            pw.println("<br/><a href='book?id=" + b.getId() + "&show-add-to-cart=false'>" +
-                    b.getName() + "</a>");
+            String img = "<a href=\"book?id=" + bookId +
+                    "\"><img height=\"300\" width=\"200\" class='img-rounded' src='images/Carti/"
+                    + b.getImage() + "'/></a>";
+            pw.println("<tr>");
+            pw.println("<td>");
+            pw.println(i++);
+            pw.println("</td>");
+            pw.println("<td><a href='book?id=" + b.getId() + "&show-add-to-cart=false'>" +
+                    b.getName() + "</a></td>");
+            pw.println("<td>" + map.get(b) + "</td>");
+            int totalPrice = b.getPrice() * map.get(b);
+            total = total + totalPrice;
+            pw.println("<td> " + totalPrice + " " + "lei" + "</td>");
         }
+        pw.println("</tbody>");
+        pw.println("</table>");
+        pw.println("<h4> " + "Total spre achitare" + " " + total + " " + "lei" + "</h4>");
         pw.println("<hr>");
-        pw.println("Sinteti logat: " + user.getFirstName());
-        pw.println("<hr>");
-        pw.println("email: " + user.getEmail());
         pw.println("<a class=\"btn btn-danger\" href='account?logout=true' role=\"button\">" +
-                "Log Out - Iesire</a>");
+                "Iesire</a>");
         pw.println("</body>");
         pw.println("</html");
     }
@@ -62,15 +90,32 @@ public class DetailsServlet extends HttpServlet {
         try {
             String fileName = "D:/BookOrders/order_" + UUID.randomUUID() + ".txt";
             try (BufferedWriter p = new BufferedWriter(new FileWriter(fileName, true))) {
+                int totalPrice = 0;
                 for (Book b : map.keySet()) {
-                    p.write(b.getId() + ", " + b.getName() + ", " + b.getISBN());
+                    p.write("Id book: " + b.getId());
+                    p.newLine();
+                    p.write("Name book: " + b.getName());
+                    p.newLine();
+                    p.write("Author book: " + b.getAuthor().getFirstName() + " " + b.getAuthor().getLastName());
+                    p.newLine();
+                    p.write("Numar de carti: " + map.get(b));
+                    p.newLine();
+                    int Price = b.getPrice() * map.get(b);
+                    totalPrice = totalPrice + Price;
+                    p.write("Pret:" + Price);
+                    p.newLine();
+                    p.write("----------------------------");
                     p.newLine();
                 }
+                p.write("Total pret spre achitare:" + totalPrice);
+                p.newLine();
                 p.write("-------------USER-------------");
                 p.newLine();
-                p.write("UseName: " + user.getFirstName());
+                p.write("Use First Name: " + user.getFirstName());
                 p.newLine();
-                p.write("UserId: " + user.getId());
+                p.write("Use Last Name: " + user.getLastName());
+                p.newLine();
+                p.write("User email: " + user.getEmail());
                 p.flush();
             }
             System.out.println("Successfully wrote to the file.");

@@ -50,13 +50,20 @@ public class CartServlet extends HttpServlet {
                     map.put(book, nrOfBooks);
                 }
             }
+            if ("minus".equals(action)) {
+                Book book = dataProvider.getBook(strId);
+                Integer nrOfBooks = map.get(book);
+                if (nrOfBooks > 1) {
+                    nrOfBooks--;
+                    map.put(book, nrOfBooks);
+                }
+            }
             if ("delete".equals(action)) {
                 System.out.println("Deleting book from cart, id = " + strId);
                 Book book = dataProvider.getBook(strId);
                 map.remove(book);
             }
         }
-
         pw.println("<html>");
         pw.println("<head>");
         pw.println("<title>Carti</title>");
@@ -77,13 +84,13 @@ public class CartServlet extends HttpServlet {
         pw.println("<tr>");
         pw.println("<th>Nr.</th>");
         pw.println("<th>Carte</th>");
-        pw.println("<th>Numarul de carti de acelasi fel</th>");
         pw.println("<th>Subtotal</th>");
         pw.println("</tr>");
         pw.println("</thead>");
         pw.println("<tbody>");
         pw.println("<tr>");
         int i = 1;
+        int total = 0;
         for (Book b : map.keySet()) {
             int bookId = b.getId();
             String img = "<a href=\"book?id=" + bookId +
@@ -96,7 +103,9 @@ public class CartServlet extends HttpServlet {
             pw.println("<td><a href='book?id=" + b.getId() + "&show-add-to-cart=false'>" +
                     b.getName() + "</a></td>");
             pw.println("<td>" + map.get(b) + "</td>");
-            pw.println("<td> " + b.getPrice() * map.get(b) + " " + "lei" + "</td>");
+            int totalPrice = b.getPrice() * map.get(b);
+            pw.println("<td> " + totalPrice + " " + "lei" + "</td>");
+            total = total + totalPrice;
             pw.println("<td>");
             pw.println("<ul class='list-inline m-0'>");
             pw.println("<li class='list-inline-item'>");
@@ -110,6 +119,8 @@ public class CartServlet extends HttpServlet {
             pw.println("<li class='list-inline-item'>");
             pw.println("<button class='btn btn-success btn-sm rounded-0' type='button' data-toggle='tooltip' data-placement='top' title='Edit'>" +
                     "<i class='fa fa-edit'>-</i></button>");
+            pw.println("<input type=\"hidden\" value='" + b.getId() + "' name=\"id\">");
+            pw.println("<input type=\"hidden\" value='minus' name='action'>");
             pw.println("</li>");
             pw.println("<li class='list-inline-item'>");
             pw.println("<form onsubmit=\"return confirm('Doriti stergerea acestei carti din cos ?');\" action='cart' method='get'>");
@@ -124,10 +135,15 @@ public class CartServlet extends HttpServlet {
         }
         pw.println("</tbody>");
         pw.println("</table>");
+        pw.println("<h4> " + "Total spre achitare" + " " + total + " " + "lei" + "</h4>");
+        pw.println("<ul class='pager'>");
+        pw.println("<li><a href='details'>Plaseaza comanda</a></li>");
+        pw.println("</ul>");
+        pw.println("<hr>");
+
         pw.println("<ul class='pager'>");
         pw.println("<li><a href='index.html'>Pagina principala </a></li>");
         pw.println("<li><a href='Carti.html'>Carti</a></li>");
-        pw.println("<li><a href='details'>Plaseaza comanda</a></li>");
         pw.println("</ul>");
         pw.println("</section>");
         pw.println("</div");
