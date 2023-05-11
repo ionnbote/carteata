@@ -1,6 +1,7 @@
 package servlets;
 
 import model.User;
+import services.UserProvider;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class MyAccountServlet extends HttpServlet {
+    UserProvider userProvider = new UserProvider();
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String lastName = request.getParameter("lastname");
+        String firstName = request.getParameter("firstname");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        User user = new User();
+        user.setLastName(lastName);
+        user.setFirstName(firstName);
+        user.setEmail(email);
+        user.setPassword(password);
+
+        userProvider.addUser(user);
+    }
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();

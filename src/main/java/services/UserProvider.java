@@ -7,6 +7,52 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UserProvider {
+
+    private int getMaxUserId() {
+        String sql = "SELECT MAX(UserId) AS id FROM user";
+        MysqlConnect mysqlConnect = new MysqlConnect();
+        try {
+            Statement stmt = mysqlConnect.connect().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idUser = rs.getInt("id");
+                return idUser;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            mysqlConnect.disconnect();
+        }
+        return 0;
+    }
+
+    public void addUser(User user) {
+        int userId = getMaxUserId();
+        userId++;
+        user.setId(userId);
+
+        String sql = "INSERT INTO user VALUES("
+                + user.getId()
+                + ", "
+                + "'" + user.getLastName() + "'"
+                + ", "
+                + "'" + user.getFirstName() + "'"
+                + ", "
+                + "'" + user.getEmail() + "'"
+                + ", "
+                + "'" + user.getPassword() + "'"
+                + ")";//(UserId,LastName,FirstName,Email,Parola)";
+        MysqlConnect mysqlConnect = new MysqlConnect();
+        try {
+            Statement stmt = mysqlConnect.connect().createStatement();
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            mysqlConnect.disconnect();
+        }
+    }
+
     public User getUser(String email, String password) {
         MysqlConnect mysqlConnect = new MysqlConnect();
         String sql = "SELECT * FROM user where Email = '" + email + "' and Parola = '" + password + "'";
