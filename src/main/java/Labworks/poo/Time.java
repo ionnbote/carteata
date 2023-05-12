@@ -1,23 +1,9 @@
 package Labworks.poo;
 
-import java.time.LocalDateTime;
-
 public class Time {
     private int ore;
     private int minute;
     private int secunde;
-
-    public Time() {
-        ore = LocalDateTime.now().getHour();
-        minute = LocalDateTime.now().getMinute();
-        secunde = LocalDateTime.now().getSecond();
-    }
-
-    public Time(int ore, int minute, int secunde) {
-        this.ore = ore;
-        this.minute = minute;
-        this.secunde = secunde;
-    }
 
     public void setOre(int ore) {
         this.ore = ore;
@@ -42,8 +28,13 @@ public class Time {
     public int getSecunde() {
         return secunde;
     }
-    public String afisareSablon1(){
+
+    public String afisareSablon1() {
         return "ora " + ore + " si " + minute + " minute" + " si " + secunde + " secunde";
+    }
+
+    public String afisareSablon2() {
+        return "ora " + ore + " pm" + " si " + minute + " minute" + " si " + secunde + " secunde";
     }
 
 }
