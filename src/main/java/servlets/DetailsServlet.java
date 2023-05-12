@@ -82,6 +82,9 @@ public class DetailsServlet extends HttpServlet {
         pw.println("<hr>");
         pw.println("<a class=\"btn btn-danger\" href='account?logout=true' role=\"button\">" +
                 "Iesire</a>");
+        pw.println("<ul class='pager'");
+        pw.println("<li><a href='index.html'>Pagina principala </a></li>");
+        pw.println("</ul>");
         pw.println("</body>");
         pw.println("</html");
     }

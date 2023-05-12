@@ -118,7 +118,7 @@ public class CartServlet extends HttpServlet {
             pw.println("</li>");
             pw.println("<li class='list-inline-item'>");
             pw.println("<form action='cart' method='get'>");
-            pw.println("<button class='btn btn-success btn-sm rounded-0' type='submit' data-toggle='tooltip' data-placement='top' title='Edit'>" +
+            pw.println("<button class='btn btn-success btn-sm rounded-0' type='submit' data-toggle='tooltip' data-placement='top' title='Sterge o unitate'>" +
                     "<i class='fa fa-edit'>-</i></button>");
             pw.println("<input type=\"hidden\" value='" + b.getId() + "' name=\"id\">");
             pw.println("<input type=\"hidden\" value='minus' name='action'>");

@@ -319,7 +319,7 @@ p a {
         flex-direction: row;
       }
       .BookDetailsServlet{
-        font-size: 16px;
+       font-size: 100%;
       }
       .img{
         width: 130px;

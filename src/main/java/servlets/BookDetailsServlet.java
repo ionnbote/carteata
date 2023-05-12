@@ -61,7 +61,7 @@ public class BookDetailsServlet extends HttpServlet {
         pw.println("<tr>");
         pw.println("<td><h4>" + "ISDN" + "</h4></td>");
         pw.println("<td>" + "--------------------" + " </td>");
-        pw.println("<td><h4>" + book.getPage() + "</h4></td>");
+        pw.println("<td><h4>" + book.getISBN() + "</h4></td>");
         pw.println("</tr>");
         pw.println("<td><h4>" + "Pret" + "</h4></td>");
         pw.println("<td>" + "--------------------" + " </td>");
