@@ -4,6 +4,6 @@ public class InstitutieDeInvatamintPrescolara extends InstitutieDeInvatamint {
 
     @Override
     public String descriere() {
-        return "O descriere a institutiri de invatamint prescolar";
+        return "O descriere a institutiei de invatamint prescolar";
     }
 }

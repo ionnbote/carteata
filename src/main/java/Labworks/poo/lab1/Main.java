@@ -1,4 +1,4 @@
-package Labworks.poo;
+package Labworks.poo.lab1;
 
 public class Main {
     public static void main(String[] args) {

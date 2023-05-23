@@ -138,6 +138,13 @@ public class CartServlet extends HttpServlet {
         pw.println("</tbody>");
         pw.println("</table>");
         pw.println("<h4> " + "Total spre achitare" + " " + total + " " + "lei" + "</h4>");
+
+        pw.println("<p id='demo'></p>");
+        pw.println("<script>");
+        pw.println("const d = new Date()");
+        pw.println("document.getElementById('demo').innerHTML = d");
+        pw.println("</script>");
+
         pw.println("<ul class='pager'>");
         pw.println("<li><a href='details'>Plaseaza comanda</a></li>");
         pw.println("</ul>");

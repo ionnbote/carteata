@@ -32,6 +32,8 @@ public class TopBooksServlet extends HttpServlet {
                 "    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
         pw.println("</head>");
         pw.println("<body>");
+
+
         pw.println("<div class=\"_container-fluid top-bar-banner\">");
         pw.println("<h2><center> " + "Top carti" + "</center>");
         pw.println("</h2>");

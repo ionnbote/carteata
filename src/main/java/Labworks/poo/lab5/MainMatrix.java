@@ -8,11 +8,22 @@ public class MainMatrix {
         Double[][] doubleArr = {{1.0, 2.2, 3.2}, {4.2, 5.3, 6.1}, {7.1, 8.3, 9.0}};
         doubleMatrix.setMatrix(doubleArr);
         intMatrix.setMatrix(intArr);
+//        doubleMatrix.print();
+
+        System.out.println();
+        System.out.println("Multiply:");
+        doubleMatrix.multiply(doubleArr);
         doubleMatrix.print();
 
         System.out.println();
-        doubleMatrix.multiply(doubleArr);
-        doubleMatrix.print();
+        System.out.println("Addition:");
+        intMatrix.addition(intArr);
+        intMatrix.print();
+
+        System.out.println();
+        System.out.println("Minus:");
+        intMatrix.minus(intArr);
+        intMatrix.print();
 
         System.out.println();
         System.out.println(doubleMatrix.getCols() + " " + doubleMatrix.getRows());
