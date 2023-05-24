@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SchimbaParola</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" id="errorMessage" style="z-index: 10; color:red">
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0 position-center">
+            <div class="position-absolute rounded-circle shadow-5-strong" id="radius-shape-1"></div>
+            <div class="position-absolute shadow-5-strong" id="radius-shape-2"></div>
+            <div class="card bg-glass">
+                <div class="card-body px-4 py-5 px-md-5">
+
+                    <form id="changepasswordform" method='post'>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="changepasswordform">E-mail</label>
+                            <input class="form-control" id="emailId" name="email" type="email"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="changepasswordform">Parola curenta</label>
+                            <input class="form-control" id="passwordId" name="password" type="password"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="changepasswordform">Parola noua</label>
+                            <input class="form-control" id="password1Id" name="password1" type="password"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="changepasswordform">Confirma parola noua</label>
+                            <input class="form-control" id="password2Id" name="password2" type="password"/>
+                        </div>
+                    </form>
+                    <button class="btn btn-primary btn-block mb-4" onclick="changePassword()">
+                        Modifica parola !!!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changePassword() {
+          if(validatePassword()) {
+            console.log('Parola valida');
+            sendAjaxRequest();
+          } else {
+            console.log('Parola invalida');
+          }
+        }
+
+       function sendAjaxRequest() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            console.log(this.responseText);
+            const obj = JSON.parse(this.responseText);
+            if (obj.isError === 'true') {
+                document.getElementById("errorMessage").style.color = "#FF0000"
+            } else {
+                document.getElementById("errorMessage").style.color = "#00FF00"
+                alert("Parola a fost modificata !");
+            }
+            document.getElementById("errorMessage").innerHTML = obj.message;
+          }
+          xhttp.open("POST", getURL());
+          xhttp.send();
+        }
+
+        function getURL() {
+            var email = document.getElementById("emailId");
+            var oldPassword = document.getElementById("passwordId");
+            var newPassword = document.getElementById("password1Id");
+            var url = "changepassword?email=" + email.value;
+            url += "&password=" + oldPassword.value;
+            url += "&password1=" + newPassword.value;
+            return url;
+        }
+
+        function validatePassword() {
+            var p1 = document.getElementById("password1Id");
+            var p2 = document.getElementById("password2Id");
+
+            var errorDiv = document.getElementById("errorMessage");
+            if (p1.value != p2.value) {
+                document.getElementById("errorMessage").style.color = "#FF0000"
+                errorDiv.innerHTML = "Parola noua nu coincide.";
+                console.log('Parola noua nu coincide.');
+                return false;
+            } else {
+                errorDiv.innerHTML = "";
+            }
+            if (p1.value == "") {
+                document.getElementById("errorMessage").style.color = "#FF0000"
+                errorDiv.innerHTML = "Parola noua este vida.";
+                console.log('Parola noua este vida.');
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</body>
+</html>
