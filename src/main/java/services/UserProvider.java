@@ -53,6 +53,26 @@ public class UserProvider {
         }
     }
 
+    public User getUserById(int id) {
+        MysqlConnect mysqlConnect = new MysqlConnect();
+        String sql = "SELECT * FROM user where UserId = '" + id;
+        try {
+            Statement stmt = mysqlConnect.connect().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int idUser = rs.getInt("UserId");
+                User user = new User();
+                user.setId(idUser);
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            mysqlConnect.disconnect();
+        }
+        return null;
+    }
+
     public User getUser(String email, String password) {
         MysqlConnect mysqlConnect = new MysqlConnect();
         String sql = "SELECT * FROM user where Email = '" + email + "' and Parola = '" + password + "'";
@@ -73,6 +93,20 @@ public class UserProvider {
                 user.setPassword(passw);
                 return user;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            mysqlConnect.disconnect();
+        }
+        return null;
+    }
+
+    public User removeUser(User user) {
+        MysqlConnect mysqlConnect = new MysqlConnect();
+        String sql = "DELETE FROM user WHERE UserId = '" + user.getId();
+        try {
+            Statement stmt = mysqlConnect.connect().createStatement();
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

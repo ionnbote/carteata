@@ -13,7 +13,7 @@ public class ChangePasswordServlet extends HttpServlet {
     UserProvider userProvider = new UserProvider();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PrintWriter pw = response.getWriter();//get the stream to write the data
+        PrintWriter pw = response.getWriter();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String newPassword = request.getParameter("password1");

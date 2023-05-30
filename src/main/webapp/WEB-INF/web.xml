@@ -52,6 +52,10 @@
         <servlet-name>changepassword</servlet-name>
         <servlet-class>servlets.ChangePasswordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>removeuser</servlet-name>
+        <servlet-class>servlets.RemoveUserServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>welcome</servlet-name>
@@ -104,6 +108,10 @@
     <servlet-mapping>
         <servlet-name>changepassword</servlet-name>
         <url-pattern>/changepassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeuser</servlet-name>
+        <url-pattern>/removeuser</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

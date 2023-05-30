@@ -63,10 +63,14 @@ public class MyAccountServlet extends HttpServlet {
         pw.println("<hr>");
         pw.println("email: " + user.getEmail());
         pw.println("<hr>");
-        pw.println("<a class=\"btn btn-danger\" href='account?logout=true' role=\"button\">" +
-                "Log Out - Iesire</a>");
+        pw.println("<a class=\"btn btn-danger\" href='index.html' role=\"button\">" +
+                "Pagina principala</a>");
         pw.println("<a class=\"btn btn-danger\" href='SchimbaParola.html' role=\"button\">" +
                 "Schimba parola</a>");
+        pw.println("<a class=\"btn btn-danger\" href='account?logout=true' role=\"button\">" +
+                "Log Out - Iesire</a>");
+        pw.println("<a class=\"btn btn-danger\" href='StergeCont.html' role=\"button\">" +
+                "Sterge acount</a>");
         pw.println("</body>");
         pw.println("</html");
     }

@@ -33,6 +33,7 @@ public class Time {
         return "ora " + ore + " si " + minute + " minute" + " si " + secunde + " secunde";
     }
 
+
     public String afisareSablon2() {
         String afisare = "";
         if ((ore >= 0 && ore < 7) || (ore >= 12 && ore < 19)) {
