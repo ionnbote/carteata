@@ -21,14 +21,14 @@
             <div class="card bg-glass">
                 <div class="card-body px-4 py-5 px-md-5">
 
-                    <form id="changepasswordform" method='post'>
+                    <form id="removeuser" method='delete'>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="changepasswordform">E-mail</label>
+                            <label class="form-label" for="removeuser">E-mail</label>
                             <input class="form-control" id="emailId" name="email" type="email"/>
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="changepasswordform">Parola curenta</label>
+                            <label class="form-label" for="removeuser">Parola curenta</label>
                             <input class="form-control" id="passwordId" name="password" type="password"/>
                         </div>
                     </form>
@@ -39,24 +39,26 @@
             </div>
         </div>
     </div>
-    <script
-            type="text/javascript">
-            function delete_row(id) {
-            var id = document.getElementById("UserId");
+    <script type="text/javascript">
+            function removeuser() {
             if(confirm("Are you sure you want to delete this Record?")){
-                $.ajax
-                ({
-                    type:'get',
-                    url:lnk,
-                    data:{
-                        delete_row:'delete_row',
-                        row_id:id
-                    },
-                    success:function(data) {
-                            $("#row" + id).remove();
-                    }
-                });
+                const xhttp = new XMLHttpRequest();
+                  xhttp.onload = function() {
+                    console.log(this.responseText);
+
+                    document.getElementById("errorMessage").innerHTML = this.responseText;
+                  }
+                  xhttp.open("DELETE", getURL());
+                  xhttp.send();
             }
+        }
+
+        function getURL() {
+            var email = document.getElementById("emailId");
+            var oldPassword = document.getElementById("passwordId");
+            var url = "removeuser?email=" + email.value;
+            url += "&password=" + oldPassword.value;
+            return url;
         }
 
     </script>

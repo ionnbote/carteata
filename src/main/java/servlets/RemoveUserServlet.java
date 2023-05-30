@@ -13,10 +13,19 @@ public class RemoveUserServlet extends HttpServlet {
 
     UserProvider userProvider = new UserProvider();
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @Override
+    public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter pw = response.getWriter();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = userProvider.getUser(email, password);
+        User us = new User();
+        us.setEmail(email);
+        us.setPassword(password);
+        if (userProvider.removeUser(us)) {
+            pw.println("Utilizatorul a fost sters cu succes");
+        } else {
+            pw.println("Utilizatorul nu a fost gasit");
+        }
+
     }
 }

@@ -101,18 +101,21 @@ public class UserProvider {
         return null;
     }
 
-    public User removeUser(User user) {
+    public boolean removeUser(User user) {
         MysqlConnect mysqlConnect = new MysqlConnect();
-        String sql = "DELETE FROM user WHERE UserId = '" + user.getId();
+        String sql = "DELETE FROM user WHERE email = '" + user.getEmail()
+                + "' and parola = '" + user.getPassword() + "'";
         try {
             Statement stmt = mysqlConnect.connect().createStatement();
+            int i = stmt.executeUpdate(sql);
+            return i != 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             mysqlConnect.disconnect();
         }
-        return null;
+        return false;
     }
 
     public boolean changePasswordUser(User user) {
